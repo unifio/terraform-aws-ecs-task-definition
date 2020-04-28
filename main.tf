@@ -92,7 +92,7 @@ data "template_file" "container_definition" {
 
   vars = {
     command                = local.command == "[]" ? "null" : local.command
-    cpu                    = var.cpu == 0 ? "null" : var.cpu
+    cpu                    = var.cpu_container == 0 ? "null" : var.cpu_container
     disableNetworking      = var.disableNetworking ? true : false
     dnsSearchDomains       = local.dnsSearchDomains == "[]" ? "null" : local.dnsSearchDomains
     dnsServers             = local.dnsServers == "[]" ? "null" : local.dnsServers
@@ -109,7 +109,7 @@ data "template_file" "container_definition" {
     links                  = local.links == "[]" ? "null" : local.links
     linuxParameters        = local.linuxParameters == "{}" ? "null" : local.linuxParameters
     logConfiguration       = local.logConfiguration == "{}" ? "null" : local.logConfiguration
-    memory                 = var.memory == 0 ? "null" : var.memory
+    memory                 = var.memory_container == 0 ? "null" : var.memory_container
     memoryReservation      = var.memoryReservation == 0 ? "null" : var.memoryReservation
     mountPoints            = local.mountPoints == "[]" ? "null" : local.mountPoints
     name                   = var.name == "" ? "null" : var.name
@@ -132,6 +132,8 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
   container_definitions = local.container_definitions
   execution_role_arn    = var.execution_role_arn
   family                = var.family
+  cpu                   = var.cpu
+  memory                = var.memory
   ipc_mode              = var.ipc_mode
   network_mode          = var.network_mode
   pid_mode              = var.pid_mode

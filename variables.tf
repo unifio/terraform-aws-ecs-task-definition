@@ -8,6 +8,14 @@ variable "command" {
 }
 
 variable "cpu" {
+  type        = number
+  description = "The number of cpu units reserved for the task. Required for fargate"
+}
+variable "memory" {
+  type        = string
+  description = "The memory reserved for the task in MiB. Required for fargate"
+}
+variable "cpu_container" {
   default     = 0
   description = "The number of cpu units reserved for the container"
 }
@@ -117,7 +125,7 @@ variable "logConfiguration" {
   type        = any
 }
 
-variable "memory" {
+variable "memory_container" {
   default     = 0
   description = "The hard limit (in MiB) of memory to present to the container"
 }

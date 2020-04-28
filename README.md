@@ -125,7 +125,8 @@ By default, this module creates a task definition with a single container defini
 |------|-------------|------|---------|:--------:|
 | command | The command that is passed to the container | `list(string)` | `[]` | no |
 | cost\_tags | Additional tags for cost tracking | `map(string)` | `{}` | no |
-| cpu | The number of cpu units reserved for the container | `number` | `0` | no |
+| cpu | The number of cpu units reserved for the task. Required for fargate | `number` | n/a | yes |
+| cpu\_container | The number of cpu units reserved for the container | `number` | `0` | no |
 | disableNetworking | When this parameter is true, networking is disabled within the container | `bool` | `false` | no |
 | dnsSearchDomains | A list of DNS search domains that are presented to the container | `list(string)` | `[]` | no |
 | dnsServers | A list of DNS servers that are presented to the container | `list(string)` | `[]` | no |
@@ -145,8 +146,9 @@ By default, this module creates a task definition with a single container defini
 | links | The link parameter allows containers to communicate with each other without the need for port mappings | `list(string)` | `[]` | no |
 | linuxParameters | Linux-specific modifications that are applied to the container, such as Linux KernelCapabilities | `any` | `{}` | no |
 | logConfiguration | The log configuration specification for the container | `any` | `{}` | no |
-| memory | The hard limit (in MiB) of memory to present to the container | `number` | `0` | no |
+| memory | The memory reserved for the task in MiB. Required for fargate | `string` | n/a | yes |
 | memoryReservation | The soft limit (in MiB) of memory to reserve for the container | `number` | `0` | no |
+| memory\_container | The hard limit (in MiB) of memory to present to the container | `number` | `0` | no |
 | mountPoints | The mount points for data volumes in your container | `list(any)` | `[]` | no |
 | name | The name of a container | `string` | `""` | no |
 | network\_mode | The Docker networking mode to use for the containers in the task | `string` | `"bridge"` | no |
