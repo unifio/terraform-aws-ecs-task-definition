@@ -106,6 +106,12 @@ Invoking the commands defined below creates an ECS task definition with the foll
 By default, this module creates a task definition with a single container definition. To create a task definition with multiple container definitions, refer to the documentation of the [`merge`](modules/merge) module.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12 |
+
 ## Providers
 
 | Name | Version |
@@ -116,8 +122,9 @@ By default, this module creates a task definition with a single container defini
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | command | The command that is passed to the container | `list(string)` | `[]` | no |
+| cost\_tags | Additional tags for cost tracking | `map(string)` | `{}` | no |
 | cpu | The number of cpu units reserved for the container | `number` | `0` | no |
 | disableNetworking | When this parameter is true, networking is disabled within the container | `bool` | `false` | no |
 | dnsSearchDomains | A list of DNS search domains that are presented to the container | `list(string)` | `[]` | no |
@@ -155,7 +162,7 @@ By default, this module creates a task definition with a single container defini
 | resourceRequirements | The type and amount of a resource to assign to a container | `list(string)` | `[]` | no |
 | secrets | The secrets to pass to the container | `list(string)` | `[]` | no |
 | systemControls | A list of namespaced kernel parameters to set in the container | `list(string)` | `[]` | no |
-| tags | The metadata that you apply to the task definition to help you categorize and organize them | `map(string)` | `{}` | no |
+| tags | A map of tags to add to all resources | `map(string)` | `{}` | no |
 | task\_role\_arn | The short name or full Amazon Resource Name (ARN) of the IAM role that containers in this task can assume | `string` | `""` | no |
 | ulimits | A list of ulimits to set in the container | `list(any)` | `[]` | no |
 | user | The user name to use inside the container | `string` | `""` | no |

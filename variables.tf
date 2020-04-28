@@ -248,3 +248,14 @@ variable "workingDirectory" {
   default     = ""
   description = "The working directory in which to run commands inside the container"
 }
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "cost_tags" {
+  description = "Additional tags for cost tracking"
+  type        = map(string)
+  default     = {}
+}

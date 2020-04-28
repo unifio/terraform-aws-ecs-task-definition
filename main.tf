@@ -174,4 +174,11 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
   }
 
   count = var.register_task_definition ? 1 : 0
+  tags = merge(
+    {
+      "Name" = format("%s", var.name)
+    },
+    var.tags,
+    var.cost_tags,
+  )
 }
