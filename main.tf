@@ -134,9 +134,9 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
   family                = var.family
   cpu                   = var.cpu == 0 ? null : var.cpu
   memory                = var.memory == "" ? null : var.memory
-  ipc_mode              = var.ipc_mode
+  ipc_mode              = var.ipc_mode == "" ? null : var.ipc_mode
   network_mode          = var.network_mode
-  pid_mode              = var.pid_mode
+  pid_mode              = var.pid_mode == "" ? null : var.pid_mode
   dynamic "placement_constraints" {
     for_each = var.placement_constraints
     content {

@@ -142,7 +142,7 @@ By default, this module creates a task definition with a single container defini
 | hostname | The hostname to use for your container | `string` | `""` | no |
 | image | The image used to start a container | `string` | `""` | no |
 | interactive | When this parameter is true, this allows you to deploy containerized applications that require stdin or a tty to be allocated | `bool` | `false` | no |
-| ipc\_mode | The IPC resource namespace to use for the containers in the task | `string` | `"host"` | no |
+| ipc\_mode | The IPC resource namespace to use for the containers in the task | `string` | `""` | no |
 | links | The link parameter allows containers to communicate with each other without the need for port mappings | `list(string)` | `[]` | no |
 | linuxParameters | Linux-specific modifications that are applied to the container, such as Linux KernelCapabilities | `any` | `{}` | no |
 | logConfiguration | The log configuration specification for the container | `any` | `{}` | no |
@@ -152,7 +152,7 @@ By default, this module creates a task definition with a single container defini
 | mountPoints | The mount points for data volumes in your container | `list(any)` | `[]` | no |
 | name | The name of a container | `string` | `""` | no |
 | network\_mode | The Docker networking mode to use for the containers in the task | `string` | `"bridge"` | no |
-| pid\_mode | The process namespace to use for the containers in the task | `string` | `"host"` | no |
+| pid\_mode | The process namespace to use for the containers in the task | `string` | `""` | no |
 | placement\_constraints | An array of placement constraint objects to use for the task | `list(string)` | `[]` | no |
 | portMappings | The list of port mappings for the container | `list(any)` | `[]` | no |
 | privileged | When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user) | `bool` | `false` | no |

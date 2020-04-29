@@ -103,7 +103,7 @@ variable "interactive" {
 }
 
 variable "ipc_mode" {
-  default     = "host"
+  default     = ""
   description = "The IPC resource namespace to use for the containers in the task"
 }
 
@@ -152,7 +152,7 @@ variable "network_mode" {
 }
 
 variable "pid_mode" {
-  default     = "host"
+  default     = ""
   description = "The process namespace to use for the containers in the task"
 }
 
