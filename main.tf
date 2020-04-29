@@ -132,8 +132,8 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
   container_definitions = local.container_definitions
   execution_role_arn    = var.execution_role_arn
   family                = var.family
-  cpu                   = var.cpu
-  memory                = var.memory
+  cpu                   = var.cpu == 0 ? null : var.cpu
+  memory                = var.memory == "" ? null : var.memory
   ipc_mode              = var.ipc_mode
   network_mode          = var.network_mode
   pid_mode              = var.pid_mode
